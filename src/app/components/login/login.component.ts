@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params} from '@angular/router';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 
@@ -19,7 +20,9 @@ export class LoginComponent implements OnInit {
   public token;
 
   constructor(
-    private _userService: UserService
+    private _userService: UserService,
+    private _router: Router,
+    private _route: ActivatedRoute
   ){
     this.page_title = 'identificate';
     this.user = new User('','','','','','','ROLE_USER');
@@ -36,8 +39,9 @@ export class LoginComponent implements OnInit {
         if( response.user && response.user._id ){
           
           console.log('Exito, respuesta desde el backend: ', response);
-          // Guardamos el usuario en una propiedad
+          // Guardamos el usuario en una propiedad y en el localstorage
           this.identity = response.user;
+          localStorage.setItem('identity', JSON.stringify(this.identity));
 
           //Conseguir el token del usuario identificado, vuelvo a hacer una petición
 
@@ -47,6 +51,9 @@ export class LoginComponent implements OnInit {
 
                 //Guardar el token del usuario
                 this.token = response.token; 
+                localStorage.setItem('token', this.token);
+                this.status = 'success';
+                this._router.navigate(['/inicio']);
               
               }else{
               
@@ -62,6 +69,8 @@ export class LoginComponent implements OnInit {
           this.status = 'error';
           console.log('Error de autenticación');
         }
+        //form.reset();
+
       },
       error => {
         this.status = 'error';
