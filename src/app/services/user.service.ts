@@ -22,7 +22,7 @@ export class UserService{
         return "Hola mundo desde el servicio de angular";
     }
 
-    /* método register
+    /* --------método register -------------
         recibe un usuario y lo envía a la API (la API lo graba)
         recibe la respuesta por el Observable
     */
@@ -36,5 +36,24 @@ export class UserService{
         // Hacer petición ajax
         console.log ('registrando usuario' , this.url);
         return this._http.post(this.url+'register', params, {headers: headers});
+    }
+
+    /* --------método signup -------------
+        busca el usuario en la bd
+        si le mando el parámetro gettoken me devolverá el token, si no me devuelve datos de usuario para almacenar en localstorage
+        si no está devuelve error    
+    */
+    signup(user, gettoken = null):Observable<any>{
+
+        // Comprobar si llega gettoken
+        if(gettoken != null){
+            user.gettoken = gettoken; //le agrego a user un parámetro gettoken
+        }
+
+        let params = JSON.stringify(user);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.post(this.url+'login', params, {headers: headers});
+
     }
 }
