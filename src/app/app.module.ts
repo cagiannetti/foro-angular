@@ -5,11 +5,17 @@ import { HttpClientModule } from '@angular/common/http'; //para poder trabajar c
 import { routing, appRoutingProviders } from './app.routing';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
 
+//Cargamos módulo panel de usuario
+import { PanelModule } from './panel/panel.module';
+
+
+//Componentes
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +30,8 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     FormsModule,
     HttpClientModule,
     routing,
-    AngularFileUploaderModule
+    AngularFileUploaderModule,
+    PanelModule
   ],
   providers: [
     appRoutingProviders
