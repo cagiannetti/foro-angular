@@ -17,6 +17,7 @@ export class AddComponent implements OnInit {
   public identity;
   public token;
   public status;
+  public is_edit;
   
   constructor(
     private _route: ActivatedRoute,

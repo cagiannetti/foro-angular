@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms'; //para poder trabajar con formular
 import { HttpClientModule } from '@angular/common/http'; //para poder trabajar con peticiones http, por ejemplo en los services
 import { routing, appRoutingProviders } from './app.routing';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
+import { MomentModule } from 'ngx-moment';
 
 //Cargamos módulo panel de usuario
 import { PanelModule } from './panel/panel.module';
@@ -31,7 +32,8 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     HttpClientModule,
     routing,
     AngularFileUploaderModule,
-    PanelModule
+    PanelModule,
+    MomentModule
   ],
   providers: [
     appRoutingProviders
