@@ -50,4 +50,16 @@ export class ListComponent implements OnInit {
     );
   }
 
+  deleteTopic(id){
+    this._topicService.delete(this.token, id).subscribe(
+      response => {
+        this.getTopics(); //para actualizar el listado
+      },
+      error=>{
+        alert('Error en el servidor');
+        console.log(error);
+      }
+    );
+  }
+
 }

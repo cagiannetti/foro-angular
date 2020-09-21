@@ -16,7 +16,31 @@
                 <td>{{topic.date | amLocale:'es' | amDateFormat:'LL'}}</td>
                 <td>
                     <a [routerLink]="['/panel/editar', topic._id]" class="btn btn-sm btn-warning mr-2">Editar</a>
-                    <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" [attr.data-target]="'#modal'+topic._id">
+                        Borrar
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="{{ 'modal'+topic._id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de querer borrar este tema?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                            Vas a borrar el tema "{{topic.title}}" para siempre
+                            </div>
+                            <div class="modal-footer">
+                            <a (click)="deleteTopic(topic._id)" type="button" class="btn btn-danger" data-dismiss="modal">Borrar</a>
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
         </tbody>
