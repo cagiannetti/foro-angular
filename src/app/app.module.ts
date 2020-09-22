@@ -16,6 +16,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { TopicsComponent } from './components/topics/topics.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    UserEditComponent
+    UserEditComponent,
+    TopicsComponent
   ],
   imports: [
     BrowserModule,
