@@ -10,6 +10,11 @@ import { NgxHighlightJsModule } from '@nowzoo/ngx-highlight-js'; //resaltador de
 //Cargamos módulo panel de usuario
 import { PanelModule } from './panel/panel.module';
 
+//Servicios
+import { UserService } from './services/user.service';
+import { UserGuard } from './services/user.guard';
+import { NoIdentityGuard } from './services/no.identity.guard';
+
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -42,7 +47,10 @@ import { TopicDetailComponent } from './components/topic-detail/topic-detail.com
     NgxHighlightJsModule.forRoot(),
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    UserService,
+    UserGuard,
+    NoIdentityGuard
   ],
   bootstrap: [AppComponent]
 })
