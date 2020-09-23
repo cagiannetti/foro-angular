@@ -53,4 +53,5 @@ export class TopicService{
     getTopics(page =1):Observable<any>{ //le paso la página, si no le paso nada asume 1, devuelve observable
         return this._http.get(this.url+'topics/'+page);
     }
+
 }

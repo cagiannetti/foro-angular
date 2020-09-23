@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; //para poder trabajar con formularios angular
 import { HttpClientModule } from '@angular/common/http'; //para poder trabajar con peticiones http, por ejemplo en los services
 import { routing, appRoutingProviders } from './app.routing';
-import { AngularFileUploaderModule } from 'angular-file-uploader';
-import { MomentModule } from 'ngx-moment';
+import { AngularFileUploaderModule } from 'angular-file-uploader'; //subida de archivos
+import { MomentModule } from 'ngx-moment'; //manejo de fechas
+import { NgxHighlightJsModule } from '@nowzoo/ngx-highlight-js'; //resaltador de código
 
 //Cargamos módulo panel de usuario
 import { PanelModule } from './panel/panel.module';
@@ -17,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { TopicsComponent } from './components/topics/topics.component';
+import { TopicDetailComponent } from './components/topic-detail/topic-detail.component';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { TopicsComponent } from './components/topics/topics.component';
     LoginComponent,
     HomeComponent,
     UserEditComponent,
-    TopicsComponent
+    TopicsComponent,
+    TopicDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { TopicsComponent } from './components/topics/topics.component';
     routing,
     AngularFileUploaderModule,
     PanelModule,
-    MomentModule
+    MomentModule,
+    NgxHighlightJsModule.forRoot(),
   ],
   providers: [
     appRoutingProviders
