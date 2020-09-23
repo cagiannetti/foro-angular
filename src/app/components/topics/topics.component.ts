@@ -36,7 +36,7 @@ export class TopicsComponent implements OnInit {
     this._route.params.subscribe(params => {
       var page= +params['page']; //convierto el parámetro page que me llega a string
       
-      if(!page || page==null || page==undefined || page==undefined){
+      if(!page){
         page=1;
         this.prev_page=1;
         this.next_page=2;
