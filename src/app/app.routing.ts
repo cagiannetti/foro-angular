@@ -12,6 +12,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { TopicsComponent } from './components/topics/topics.component';
 import { TopicDetailComponent } from './components/topic-detail/topic-detail.component';
 import { UsersComponent } from './components/users/users.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 // Crear array de rutas incluyendo vacías '' y/o inválidas '**', también algunas necesitan permiso con canActivate UserGuard y noidentityguard
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
     { path: 'temas/:page', component: TopicsComponent },
     { path: 'tema/:id', component: TopicDetailComponent},
     { path: 'usuarios', component: UsersComponent },
+    { path: 'perfil/:id', component: ProfileComponent },
     { path: '**', component: HomeComponent}
 ];
 
