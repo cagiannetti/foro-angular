@@ -34,7 +34,6 @@ export class TopicDetailComponent implements OnInit {
     this.token = this._userService.getToken();
     this.comment = new Comment('','','',this.identity._id);
     this.url = global.url;
-
    }
 
   ngOnInit(): void {
@@ -44,7 +43,6 @@ export class TopicDetailComponent implements OnInit {
   getTopic(){
     this._route.params.subscribe(params=>{
       let id = params['id'];
-
       this._topicService.getTopic(id).subscribe(
         response=>{
           if(response.topic){
@@ -54,10 +52,12 @@ export class TopicDetailComponent implements OnInit {
           }
         },
         error=>{
-          console.log(error);
+          //console.log(error);
         }
       );
     });
+
+
   }
 
   onSubmit(form){

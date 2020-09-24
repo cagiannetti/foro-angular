@@ -25,11 +25,16 @@
           &nbsp;&nbsp;
         </li>
         <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="¿Qué estás buscando?" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+          <form class="form-inline my-2 my-lg-0" #searchForm="ngForm">
+            <input [(ngModel)]="search" name="busqueda" #busqueda="ngModel" class="form-control mr-sm-2" type="search" placeholder="¿Qué estás buscando?" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="goSearch()">Buscar</button>
           </form>
         </li>
+
+        <!--<li class="nav-item">
+           {{search}}
+        </li>-->
+
       </ul>
       <ul class="navbar-nav navbar-right">
         <li class="nav-item">
